@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Record - View All</title>
+</head>
+<body>
+<h1>Athlete Records</h1>
+<a href="/Record/add">Add New Record</a> <br />
+<table border ="1">
+    <tr>
+        <th>Season</th>
+        <th>Athlete</th>
+    </tr>
+    <% for(var i=0; i < Records.length;i++) {%>
+    <tr>
+        <td><%= Records[i].season %></td>
+        <td><%=Records[i].ath_id%></td>
+    </tr>
+    <% } %>
+</table>
+<a href="/">Return Home</a> <br />
+</body>
+</html>

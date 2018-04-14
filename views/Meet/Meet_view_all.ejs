@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meet - View All</title>
+</head>
+<body>
+<h1>Meets Ran At</h1>
+<a href="/Meet/add">Add New Meet</a> <br />
+
+<table border ="1">
+    <tr>
+        <th>Meet Name</th>
+        <th>Venue</th>
+        <th>Race Ran</th>
+    </tr>
+    <% for(var i=0; i < Meets.length;i++) {%>
+    <tr>
+        <td><%= Meets[i].meet_name %></td>
+        <td><%= Meets[i].venue %></td>
+        <td><%= Meets[i].event_id%></td>
+    </tr>
+    <% } %>
+</table>
+<a href="/">Return Home</a> <br />
+</body>
+</html>

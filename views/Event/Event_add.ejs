@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event - Add</title>
+</head>
+<body>
+<h1>Add Different Event</h1>
+<form action="/Event/insert" method="get">
+    <br />
+    For Which Record
+    <br />
+   <select>
+       <% for(var i=0; record_result.length > i; i++) { %>
+       <option value="<%=record_result[i].ath_id%>"><%= record_result[i].season%></option>
+        <% } %>
+   </select>
+    <br />
+    Event: <input name = "event_name" type="text" />
+    Time: <input name = "time" type="text" />
+
+    <br>
+    <input type="submit" />
+
+</form>
+</body>
+</html>

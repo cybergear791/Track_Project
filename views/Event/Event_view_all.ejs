@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event - View All</title>
+</head>
+<body>
+<h1>Events</h1>
+<a href="/Event/add">Add New Event</a> <br />
+<table border ="1">
+    <tr>
+        <th>Event</th>
+        <th>Time</th>
+        <th>Athlete</th>
+    </tr>
+    <% for(var i=0; i < Events.length;i++) {%>
+    <tr>
+        <td><%= Events[i].event_name %></td>
+        <td><%= Events[i].time%></td>
+        <td><%-Events[i].record_id%></td>
+    </tr>
+    <% } %>
+</table>
+<a href="/">Return Home</a> <br />
+</body>
+</html>

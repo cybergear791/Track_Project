@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meet - Add</title>
+</head>
+<body>
+<h1>Add New Meet</h1>
+<form action="/Meet/insert" method="get">
+    <br />
+    For Which Event
+    <br />
+    <select>
+        <% for(var i=0; event_result.length > i; i++) { %>
+        <option value="<%=event_result[i].record_id%>"> <%=event_result[i].event_name%></option>
+        <% } %>
+    </select>
+    <br />
+    Meet Name: <input name = "meet_name" type="text" />
+    Venue: <input name="venue" type="text" />
+    <br>
+    <input type="submit" />
+
+</form>
+</body>
+</html>

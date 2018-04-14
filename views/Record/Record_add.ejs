@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Record - Add</title>
+</head>
+<body>
+<h1>Add New Record</h1>
+<form action="/Record/insert" method="get">
+    <br />
+    For Which Athlete
+    <br />
+    <select>
+        <% for(var i=0; athlete_result.length > i; i++) { %>
+        <option value="<%=athlete_result[i].ath_id %>"><%= athlete_result[i].f_name + athlete_result[i].l_name %></option>
+        <% } %>
+    </select>
+    <br />
+    Season: <input name = "season" type="text" />
+    <br>
+    <input type="submit" />
+
+</form>
+</body>
+</html>

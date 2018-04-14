@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Athletes</title>
+</head>
+<body>
+<h1>All Athletes' Records</h1>
+
+<table border ="1">
+
+
+    <% for(var i=0; i < Views.length;i++) {%>
+    <tr>
+        <td><%=Views[i].f_name %></td>
+        <td><%=Views[i].l_name %></td>
+        <td><%=Views[i].season %></td>
+    </tr>
+    <% } %>
+</table>
+<a href="/">Return Home</a> <br />
+</body>
+</html>

@@ -3,14 +3,15 @@ var db = require('./db_connection.js');
 
 var connection = mysql.createConnection(db.config);
 
-exports.getAll = function(callback) {
-    var query = 'SELECT * FROM Meet;';
-    var query2 = 'SELECT * FROM Event';
-    connection.query(query,query2, function(err, result,result2){
-        callback(err, result,result2);
-    });
-};
 
+exports.getinfo = function(meet_id,callback) {
+    var query= 'CALL meet_getinfo';
+    var queryData = [meet_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+}
 exports.insert = function(params, callback) {
 
     var query = 'INSERT INTO Meet (event_id,venue,meet_name) values (?,?,?)';

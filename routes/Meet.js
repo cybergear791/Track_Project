@@ -3,8 +3,8 @@ var router = express.Router();
 var Meet_dal = require('../dal/Meet_dal');
 var Event_dal = require('../dal/Event_dal');
 
-router.get('/all',function(req,res,next) {
-    Meet_dal.getAll(function (err, result) {
+router.get('/all',function(req,res) {
+    Meet_dal.getinfo(req.query.meet_id,function (err, result) {
         if (err) {
             console.log(err);
             res.send(err);

@@ -2,15 +2,15 @@ var express = require('express');
 var router = express.Router();
 var Record_dal = require('../dal/Record_dal');
 var Athlete_dal = require('../dal/Athlete_dal');
-router.get('/all',function(req,res,next) {
-    Record_dal.getAll(function (err, result) {
+
+router.get('/all',function(req,res) {
+    Record_dal.getinfo(req.query.record_id,function (err, result) {
         if (err) {
             console.log(err);
             res.send(err);
         }
         else {
-            console.log(result);
-            res.render('Record/Record_view_all', {Records: result});
+            res.render('Record/Record_view_all', {Records: result[0],athlete:result[1]});
         }
     })
 

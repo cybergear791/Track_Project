@@ -9,9 +9,9 @@
     <br />
     For Which Record
     <br />
-   <select>
+   <select name="record_id">
        <% for(var i=0; record_result.length > i; i++) { %>
-       <option value="<%=record_result[i].ath_id%>"><%= record_result[i].season%></option>
+       <option value="<%=record_result[i].record_id%>"><%= record_result[i].season%></option>
         <% } %>
    </select>
     <br />

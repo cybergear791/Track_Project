@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Display Athletes</title>
+    <title>Fastest Times</title>
 </head>
 <body>
-<h1>All Athletes' Records</h1>
+<h1>Fastest Times</h1>
 
 <table border ="1">
-
-
+    <tr>
+        <th>Event</th>
+        <th>Time</th>
+        <th>Athlete</th>
+        <th>Season</th>
+    </tr>
     <% for(var i=0; i < Views.length;i++) {%>
     <tr>
-        <td><%=Views[i].f_name %></td>
-        <td><%=Views[i].l_name %></td>
-        <td><%=Views[i].season %></td>
+        <td><%=Views[i].event_name %></td>
+        <td><%=Views[i].time %></td>
+        <td><%=Views[i].f_name + ' ' + Views[i].l_name %></td>
+        <td><%=Views[i].season%></td>
     </tr>
     <% } %>
 </table>

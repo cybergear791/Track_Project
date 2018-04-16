@@ -3,15 +3,14 @@ var router = express.Router();
 var Event_dal = require('../dal/Event_dal');
 var Record_dal = require('../dal/Record_dal');
 
-router.get('/all',function(req,res,next) {
-    Event_dal.getAll(function (err, result) {
+router.get('/all',function(req,res) {
+    Event_dal.getinfo(req.query.event_id,function (err, result) {
         if (err) {
             console.log(err);
             res.send(err);
         }
         else {
-            console.log(result);
-            res.render('Event/Event_view_all', {Events: result});
+            res.render('Event/Event_view_all', {Events: result[0], record:result[1]});
         }
     })
 

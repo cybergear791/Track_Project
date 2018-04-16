@@ -10,13 +10,14 @@
     <tr>
         <th>Event</th>
         <th>Time</th>
-        <th>Athlete</th>
+        <th>Season</th>
     </tr>
     <% for(var i=0; i < Events.length;i++) {%>
     <tr>
         <td><%= Events[i].event_name %></td>
         <td><%= Events[i].time%></td>
-        <td><%-Events[i].record_id%></td>
+        <td><%= record[i].season%></td>
+
     </tr>
     <% } %>
 </table>

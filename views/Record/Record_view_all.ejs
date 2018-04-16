@@ -14,7 +14,7 @@
     <% for(var i=0; i < Records.length;i++) {%>
     <tr>
         <td><%= Records[i].season %></td>
-        <td><%=Records[i].ath_id%></td>
+        <td><%= athlete[i].f_name + ' ' + athlete[i].l_name%></td>
     </tr>
     <% } %>
 </table>

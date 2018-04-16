@@ -10,8 +10,8 @@ router.get('/all',function(req,res) {
             res.send(err);
         }
         else {
-            console.log(result);
-            res.render('Meet/Meet_view_all', {Meets: result, event_result:result});
+
+            res.render('Meet/Meet_view_all', {Meets: result[0], event_result:result[1]});
         }
     })
 

@@ -3,8 +3,8 @@ var db = require('./db_connection.js');
 
 var connection = mysql.createConnection(db.config);
 
-exports.DisplayAthletes = function(callback) {
-    var query = DisplayAthletes();
+exports.getinfo = function(callback) {
+    var query = 'CALL Fastest()';
 
     connection.query(query, function(err, result){
         callback(err, result);

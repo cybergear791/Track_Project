@@ -9,9 +9,9 @@
     <br />
     For Which Event
     <br />
-    <select>
+    <select name = "event_id">
         <% for(var i=0; event_result.length > i; i++) { %>
-        <option value="<%=event_result[i].record_id%>"> <%=event_result[i].event_name%></option>
+        <option value="<%=event_result[i].event_id%>"> <%=event_result[i].event_name%></option>
         <% } %>
     </select>
     <br />

@@ -9,9 +9,9 @@
     <br />
     For Which Athlete
     <br />
-    <select>
+    <select name="ath_id">
         <% for(var i=0; athlete_result.length > i; i++) { %>
-        <option value="<%=athlete_result[i].ath_id %>"><%= athlete_result[i].f_name + athlete_result[i].l_name %></option>
+        <option value="<%=athlete_result[i].ath_id %>"><%= athlete_result[i].f_name +' '+ athlete_result[i].l_name %></option>
         <% } %>
     </select>
     <br />

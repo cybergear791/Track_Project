@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fastest Times</title>
+    <title>All Times</title>
 </head>
 <body>
-<h1>Fastest Times</h1>
+<h1>All Races</h1>
 
 <table border ="1">
     <tr>
@@ -22,6 +22,12 @@
     </tr>
     <% } %>
 </table>
-<a href="/">Return Home</a> <br />
+<a href="/">Return Home</a> <br /> <br/>
+SQL Statement: <br/>
+SELECT f_name, l_name, season, event_name, time <br/>
+FROM Athlete a <br/>
+JOIN Record r ON r.ath_id = a.ath_id <br/>
+JOIN Event e ON e.record_id = r.record_id <br/>
+ORDER BY event_name, time; <br/>
 </body>
 </html>

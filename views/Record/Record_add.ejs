@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script>
+        function validateForm() {
+            var x = document.forms["record"]["season"].value;
+            if (x === "") {
+                alert("Season must be filled out");
+                return false;
+            }
+        }
+    </script>
     <title>Record - Add</title>
 </head>
 <body>
 <h1>Add New Record</h1>
-<form action="/Record/insert" method="get">
+<form name="record" action="/Record/insert" onsubmit="return validateForm()" method="get">
     <br />
     For Which Athlete
     <br />

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Record - Edit</title>
+</head>
+<body>
+<h1>Edit Record</h1>
+<% if(locals.was_successful) { %>
+<div class="col-md-12">
+    <div id="message" class="alert alert-success col-md-4">
+        <%= Records.record_name%> was successfully saved. %>
+    </div>
+</div>
+<% }%>
+<form action="/Record/update" method="get">
+
+    <input type="hidden" id ="record_id" name="record_id" value="<%= record_id%>" />
+
+    <select name="ath_id">
+        <% for(var i=0; athlete_result.length > i; i++) { %>
+        <option value="<%=athlete_result[i].ath_id %>"><%= athlete_result[i].f_name +' '+ athlete_result[i].l_name %></option>
+        <% } %>
+    </select>
+
+    Season: <input id="season" name = "season" type="text" value="<%=Records.season %>" />
+    <br />
+
+    <input type="submit" />
+</form>
+</body>
+</html>

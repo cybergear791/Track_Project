@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script>
+        function validateForm() {
+            var x = document.forms["user"]["f_name"].value;
+            if (x === "") {
+                alert("First Name must be filled out");
+                return false;
+            }
+            var y = document.forms["user"]["l_name"].value;
+            if (y === "") {
+                alert("Last Name must be filled out");
+                return false;
+            }
+        }
+    </script>
     <title>Athlete - Add</title>
 </head>
 <body>
 <h1>Add New Athlete</h1>
-<form action="/Athlete/insert" method="get">
+<form name="user"  action="/Athlete/insert" onsubmit="return validateForm()"  method="get">
     First Name: <input name = "f_name" type="text" />
     Last Name: <input name = "l_name" type="text" />
     <br>

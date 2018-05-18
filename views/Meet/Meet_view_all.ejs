@@ -12,12 +12,17 @@
         <th>Meet Name</th>
         <th>Venue</th>
         <th>Race Ran</th>
+        <th>Actions</th>
     </tr>
     <% for(var i=0; i < Meets.length;i++) {%>
     <tr>
         <td><%= Meets[i].meet_name %></td>
         <td><%= Meets[i].venue %></td>
         <td><%= event_result[i].event_name%></td>
+        <td>
+            <a href='/Meet/edit/?meet_id=<%= Meets[i].meet_id %>' >Edit</a>
+            &nbsp;<a href='/Meet/delete/?meet_id=<%=Meets[i].meet_id %>'>Delete</a>
+        </td>
     </tr>
     <% } %>
 </table>

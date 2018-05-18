@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+</head>
+<body>
+<h1>Events Ran</h1>
+The events ran more than once during each season. <br />
+<table border ="1">
+    <tr>
+        <th>Season</th>
+        <th>Event Name</th>
+        <th>Number of Races</th>
+    </tr>
+    <% for(var i=0; i < more.length;i++) {%>
+    <tr>
+        <td> <%=more[i].season %></td>
+        <td> <%= more[i].event_name %></td>
+        <td> <%= more[i].NumberOfRaces   %></td>
+    </tr>
+    <% } %>
+</table>
+<a href="/">Return Home</a> <br /> <br/>
+SQL Statement: <br/>
+SELECT season, event_name, count(e.event_name) AS NumberOfRaces FROM Event e <BR/>
+JOIN Record r ON r.record_id = e.record_id <BR/>
+GROUP BY r.season, e.event_name <br/>
+HAVING NumberOfRaces > 1 <br/>
+ORDER BY season, event_name; <br/>
+</body>
+</html>

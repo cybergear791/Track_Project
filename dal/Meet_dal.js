@@ -30,3 +30,20 @@ exports.insert = function(params, callback) {
     });
 };
 
+exports.update = function(params,callback) {
+    var query = 'UPDATE Meet SET meet_name = ?, venue = ? WHERE meet_id =?';
+    var queryData = [params.meet_name, params.venue, params.meet_id];
+
+    connection.query(query, queryData, function (err, result) {
+        callback(err, result);
+    });
+};
+exports.delete = function(meet_id,callback){
+    var query = 'CALL deletemeet(?)';
+    var queryData = [meet_id];
+    connection.query(query,queryData,  function(err, result) {
+        callback(err, result);
+    });
+};
+
+

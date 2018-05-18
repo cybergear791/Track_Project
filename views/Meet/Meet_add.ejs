@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script>
+        function validateForm() {
+            var x = document.forms["meet"]["meet_name"].value;
+            if (x === "") {
+                alert("Meet Name must be filled out");
+                return false;
+            }
+            var y = document.forms["meet"]["venue"].value;
+            if (y === "") {
+                alert("Venue must be filled out");
+                return false;
+            }
+        }
+    </script>
     <title>Meet - Add</title>
 </head>
 <body>
 <h1>Add New Meet</h1>
-<form action="/Meet/insert" method="get">
+<form name="meet" action="/Meet/insert" onsubmit="return validateForm()" method="get">
     <br />
     For Which Event
     <br />

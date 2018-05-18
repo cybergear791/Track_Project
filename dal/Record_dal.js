@@ -29,3 +29,19 @@ exports.insert = function(params, callback) {
     });
 };
 
+exports.update = function(params,callback) {
+    var query = 'UPDATE Record SET season = ? WHERE ath_id =?';
+    var queryData = [params.season, params.ath_id];
+
+    connection.query(query, queryData, function (err, result) {
+        callback(err, result);
+    });
+};
+exports.delete = function(record_id,callback){
+    var query = 'CALL deleterecord(?)';
+    var queryData = [record_id];
+    connection.query(query,queryData,  function(err, result) {
+        callback(err, result);
+    });
+};
+

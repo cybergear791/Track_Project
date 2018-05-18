@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Athletes</title>
+</head>
+<body>
+<h1>Athletes</h1>
+Athletes who have Unattached Records.
+<table border ="1">
+    <tr>
+        <th>Athlete</th>
+        <th>Season</th>
+    </tr>
+    <% for(var i=0; i < result.length;i++) {%>
+    <tr>
+        <td><%=result[i].f_name + ' ' + result[i].l_name %></td>
+        <td><%=result[i].season%></td>
+    </tr>
+    <% } %>
+</table>
+<a href="/">Return Home</a> <br /> <br/>
+SQL Statement: <br/>
+SELECT f_name, l_name, season FROM Athlete a <br/>
+JOIN Record r ON a.ath_id = r.ath_id <br/>
+WHERE record_id IN <br/>
+(SELECT record_id FROM Record r WHERE r.season LIKE('Unattached%')); <br/>
+</body>
+</html>

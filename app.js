@@ -12,6 +12,13 @@ var Record = require('./routes/Record');
 var Event = require('./routes/Event');
 var Meet = require('./routes/Meet');
 var View = require('./routes/View');
+var avgR = require('./routes/avgRace');
+var more1 = require('./routes/more1');
+var NeedM = require('./routes/NeedMeet');
+var Unn = require('./routes/Unn');
+var DisR = require('./routes/DisR');
+var DisE = require('./routes/DisE');
+var Fast = require('./routes/Fastest');
 var app = express();
 
 // view engine setup
@@ -33,6 +40,13 @@ app.use('/Record', Record);
 app.use('/Event', Event);
 app.use('/Meet',Meet);
 app.use('/View',View);
+app.use('/avgRace',avgR);
+app.use('/More1',more1);
+app.use('/NeedMeet',NeedM);
+app.use('/Unn',Unn);
+app.use('/DisR',DisR);
+app.use('/DisE',DisE);
+app.use('/Fastest',Fast);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

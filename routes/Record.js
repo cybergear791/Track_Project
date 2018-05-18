@@ -36,4 +36,37 @@ router.get('/insert', function(req, res) {
     });
 });
 
+router.get('/delete', function(req, res) {
+    Record_dal.delete(req.query.record_id, function (err, record_id) {
+        if (err) {
+            res.redirect(302, '/Record/all?record_id=' + record_id + '&was_successful ='+ false);
+        }
+        else {
+            res.redirect(302, '/Record/all?record_id=' + record_id + '&was_successful ='+ true);
+        }
+    });
+});
+
+router.get('/edit', function(req, res){
+    Record_dal.getinfo(req.query.record_id, function(err, result){
+        if(err){ res.send(err); }
+        else {
+            res.render('Record/RecordUpdate', {
+                record_id: req.query.record_id,
+                Records: result[0],
+                athlete_result:result[1],
+                was_successful:req.query.was_successful});
+        }
+    });
+});
+router.get('/update',function(req,res) {
+    Record_dal.update(req.query, function(err,result){
+        if(err){
+            res.send(err);
+        }
+        else{
+            res.redirect(302,'/Record/all');
+        }
+    });
+});
 module.exports = router;

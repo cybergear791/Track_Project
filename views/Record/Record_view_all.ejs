@@ -10,11 +10,16 @@
     <tr>
         <th>Season</th>
         <th>Athlete</th>
+        <th>Actions</th>
     </tr>
     <% for(var i=0; i < Records.length;i++) {%>
     <tr>
         <td><%= Records[i].season %></td>
         <td><%= athlete[i].f_name + ' ' + athlete[i].l_name%></td>
+        <td>
+            <a href='/Record/edit/?record_id=<%= Records[i].record_id %>' >Edit</a>
+            &nbsp;<a href='/Record/delete/?record_id=<%=Records[i].record_id %>'>Delete</a>
+        </td>
     </tr>
     <% } %>
 </table>

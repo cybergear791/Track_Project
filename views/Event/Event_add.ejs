@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script>
+        function validateForm() {
+            var x = document.forms["event"]["event_name"].value;
+            if (x === "") {
+                alert("Event must be filled out");
+                return false;
+            }
+            var y = document.forms["event"]["time"].value;
+            if (y === "") {
+                alert("You must enter a Time");
+                return false;
+            }
+        }
+    </script>
     <title>Event - Add</title>
 </head>
 <body>
 <h1>Add Different Event</h1>
-<form action="/Event/insert" method="get">
+<form name="event" action="/Event/insert" onsubmit="return validateForm()" method="get">
     <br />
     For Which Record
     <br />
    <select name="record_id">
        <% for(var i=0; record_result.length > i; i++) { %>
-       <option value="<%=record_result[i].record_id%>"><%= record_result[i].season%></option>
+       <option value="<%=record_result[i].record_id%>"><%=  record_result[i].season%></option>
         <% } %>
    </select>
     <br />

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Distinct Events</title>
+</head>
+<body>
+<h1>Events</h1>
+Lists every unique event in the database.
+<table border ="1">
+    <tr>
+        <th>Events</th>
+    </tr>
+    <% for(var i=0; i < result.length;i++) {%>
+    <tr>
+        <td><%=result[i].event_name%></td>
+    </tr>
+    <% } %>
+</table>
+<a href="/">Return Home</a> <br /> <br/>
+SQL Statement: <br/>
+SELECT event_name FROM Event e <br/>
+JOIN Meet m ON m.event_id = e.event_id UNION <br/>
+SELECT event_name FROM Meet m<br/>
+JOIN Event e ON e.event_id = m.event_id;<br/>
+
+</body>
+</html>

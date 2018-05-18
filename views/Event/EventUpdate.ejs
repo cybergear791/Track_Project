@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event - Edit</title>
+</head>
+<body>
+<h1>Edit Event</h1>
+<% if(locals.was_successful) { %>
+<div class="col-md-12">
+    <div id="message" class="alert alert-success col-md-4">
+        <%= Events.event_name%> was successfully saved. %>
+    </div>
+</div>
+<% }%>
+<form action="/Event/update" method="get">
+
+    <input type="hidden" id ="event_id" name="event_id" value="<%= event_id%>" />
+
+    Event Name: <input id="event_name" name = "event_name" type="text" value="<%=Events.event_name %>" />
+    Time: <input id="time" name = "time" type="text" value="<%=Events.time %>"/>
+    <br />
+
+
+    <input type="submit" />
+</form>
+</body>
+</html>

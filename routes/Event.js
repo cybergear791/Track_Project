@@ -22,7 +22,7 @@ router.get('/add', function(req, res) {
             res.send(err);
         else
 
-            res.render('Event/Event_add', {record_result: result});
+            res.render('Event/Event_add', {record_result: result, athlete:result[0]});
     });
 });
 router.get('/insert', function(req, res) {
@@ -37,4 +37,36 @@ router.get('/insert', function(req, res) {
     });
 });
 
+router.get('/delete', function(req, res) {
+    Event_dal.delete(req.query.event_id, function (err, event_id) {
+        if (err) {
+            res.redirect(302, '/Event/all?event_id=' + event_id + '&was_successful ='+ false);
+        }
+        else {
+            res.redirect(302, '/Event/all?event_id=' + event_id + '&was_successful ='+ true);
+        }
+    });
+});
+router.get('/edit', function(req, res){
+    Event_dal.getinfo(req.query.event_id, function(err, result){
+        if(err){ res.send(err); }
+        else {
+            res.render('Event/EventUpdate', {
+                Events: result[0],
+                record_result:result[1],
+                event_id: req.query.event_id,
+                was_successful:req.query.was_successful});
+        }
+    });
+});
+router.get('/update',function(req,res) {
+    Event_dal.update(req.query, function(err,result){
+        if(err){
+            res.send(err);
+        }
+        else{
+            res.redirect(302,'/Event/all');
+        }
+    });
+});
 module.exports = router;

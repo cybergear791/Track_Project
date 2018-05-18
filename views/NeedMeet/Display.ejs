@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+</head>
+<body>
+<h1>Events</h1>
+Names of Events from each season without a Meet associated with. <br />
+<table border ="1">
+    <tr>
+        <th>Season</th>
+        <th>Event Name</th>
+    </tr>
+    <% for(var i=0; i < result.length;i++) {%>
+    <tr>
+        <td> <%=result[i].season %></td>
+        <td> <%= result[i].event_name %></td>
+    </tr>
+    <% } %>
+</table>
+<a href="/">Return Home</a> <br /> <br/>
+SQL Statement: <br/>
+SELECT e.event_name,season FROM Event e <br/>
+LEFT JOIN Record r ON r.record_id = e.record_id <br/>
+WHERE NOT exists <br/>
+(SELECT e.event_name FROM Meet m WHERE m.event_id = e.event_id); <br/>
+</body>
+</html>

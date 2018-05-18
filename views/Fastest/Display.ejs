@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Times</title>
+</head>
+<body>
+<h1>Fastest Times</h1>
+Fastest times per event across all records.<br/>
+[Time may be blank since the float result is incompatible with this format. Time shows when sql statement is run through Workbench.]
+<table border ="1">
+    <tr>
+        <th>Event</th>
+        <th>Time</th>
+        <th>Athlete</th>
+        <th>Season</th>
+    </tr>
+    <% for(var i=0; i < result.length;i++) {%>
+    <tr>
+        <td><%=result[i].event_name %></td>
+        <td><%=result[i].time %></td>
+        <td><%=result[i].f_name + ' ' + result[i].l_name %></td>
+        <td><%=result[i].season%></td>
+    </tr>
+    <% } %>
+</table>
+<a href="/">Return Home</a> <br /> <br/>
+SQL Statement: <br/>
+SELECT f_name, l_name, season, event_name, MIN(time) <br/>
+FROM Athlete a <br/>
+JOIN Record r ON r.ath_id = a.ath_id <br/>
+JOIN Event e ON e.record_id = r.record_id <br/>
+GROUP BY event_name<br/>
+ORDER BY event_name, time; <br/>
+</body>
+</html>

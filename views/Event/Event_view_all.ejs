@@ -11,13 +11,18 @@
         <th>Event</th>
         <th>Time</th>
         <th>Season</th>
+        <th>Actions</th>
     </tr>
     <% for(var i=0; i < Events.length;i++) {%>
     <tr>
         <td><%= Events[i].event_name %></td>
         <td><%= Events[i].time%></td>
         <td><%= record[i].season%></td>
-
+        <td>
+            <a href='/Event/edit/?event_id=<%= Events[i].event_id %>' >
+                Edit</a>
+            &nbsp;<a href='/Event/delete/?event_id=<%=Events[i].event_id %>'>Delete</a>
+        </td>
     </tr>
     <% } %>
 </table>

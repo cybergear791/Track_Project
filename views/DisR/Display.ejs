@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Distinct Seasons</title>
+</head>
+<body>
+<h1>Seasons</h1>
+Lists every unique season in the database.
+<table border ="1">
+    <tr>
+        <th>Season</th>
+    </tr>
+    <% for(var i=0; i < result.length;i++) {%>
+    <tr>
+        <td><%=result[i].season%></td>
+    </tr>
+    <% } %>
+</table>
+<a href="/">Return Home</a> <br /> <br/>
+SQL Statement: <br/>
+SELECT DISTINCT season FROM Record;<br/>
+
+</body>
+</html>

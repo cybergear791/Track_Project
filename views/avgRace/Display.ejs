@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Average Times</title>
+</head>
+<body>
+<h1>Average Times</h1>
+The average times of all the events ran per season. <br />
+<table border ="1">
+    <tr>
+        <th>Season</th>
+        <th>Event Name</th>
+        <th>Average Time</th>
+    </tr>
+    <% for(var i=0; i < avg.length;i++) {%>
+    <tr>
+        <td> <%=avg[i].season %></td>
+        <td> <%= avg[i].event_name %></td>
+        <td> <%= avg[i].Average_Time     %></td>
+    </tr>
+    <% } %>
+</table>
+<a href="/">Return Home</a> <br /> <br/>
+SQL Statement: <br/>
+SELECT season, event_name, AVG(e.time) AS Average_Time FROM Event e <br/>
+JOIN Record r ON r.record_id = e.record_id <br/>
+GROUP BY r.season, e.event_name <br/>
+ORDER BY season, event_name; <br/>
+</body>
+</html>
